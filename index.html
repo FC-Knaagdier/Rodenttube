@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#654321">
+    <title>Rodenttube</title>
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" type="image/x-icon" href="/images/Rodenttube%20logo.png">
+    <link rel="stylesheet" href="/layout.css">
+    <style>
+        /* Stijl voor de aangepaste pop-up */
+        #custom-alert {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: Arial, sans-serif;
+            z-index: 9999;
+        }
+
+        #custom-alert p {
+            font-size: 1.5rem;
+            /* Grotere tekstgrootte */
+            text-align: center;
+            margin-bottom: 20px;
+            max-width: 80%;
+        }
+
+        #custom-alert button {
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            color: white;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        #custom-alert button:hover,
+        #custom-alert button:focus {
+            background-color: #0056b3;
+            outline: 3px solid white;
+        }
+
+        #help-text {
+            display: none;
+            position: fixed;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            z-index: 1001;
+            max-width: 90%;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+            outline: none;
+        }
+
+        #help-text.visible {
+            outline: none;
+        }
+
+    #video-container {
+    display: grid;
+    grid-template-columns: 100%;
+    gap: 10px; /* Ruimte tussen de video's */
+    }
+    
+    video {
+    width: 100%; /* Video altijd 100% breed */
+    height: 300px; /* Zorg dat de hoogte proportioneel blijft */
+    }
+    
+    @media (min-width: 768px) {
+    #video-container {
+    grid-template-columns: repeat(2, 49%); /* Twee kolommen van 49% breed */
+    gap: 2%; /* Ruimte tussen de kolommen */
+    }
+    }
+
+        @media (min-width: 768px) {
+            #video-container {
+                grid-template-columns: repeat(2, 49%);
+                gap: 0.3%;
+            }
+            video{
+            height: 300px;
+            width: 100%;
+            }
+        }
+
+
+        video:focus {
+            border: 6px solid blue;
+            height: 300px;
+        }
+
+        body {
+            background-image: url(/images/hout%20bg.jpg);
+            background-size: 100% 100%;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        main {
+            padding-top: 20px;
+        }
+
+            function closeCustomAlert(confirmed) {
+            const alertBox = document.getElementById('custom-alert');
+            alertBox.style.display = 'none';
+            
+            // Verplaats focus naar een veilig element (bijv. een verborgen knop)
+            const focusTarget = document.getElementById('safe-focus-target');
+            if (focusTarget) {
+            focusTarget.focus();
+            }
+            }
+    </style>
+
+</head>
+
+<body>
+<div id="custom-alert">
+    <p>Let op: Deze website bevat video's en parodieën die geschikt zijn voor kinderen van 9 jaar en ouder. Sommige
+        video's bevatten politieke humor. Ouders wordt aangeraden mee te kijken.</p>
+    <button onclick="closeCustomAlert(true)">Ik begrijp het</button>
+</div>
+<button id="safe-focus-target" style="position: absolute; top: -9999px; left: -9999px;">Focus</button>
+    <p style="text-align: center;"> <img src="images/Rodenttube%20logo.png" height="300px" width="300px" style="margin-left: auto; margin-right: auto; margin-top\:auto; margin-bottom: auto;" />
+    </p>
+    <main style="border: 4px solid black;" id="video-container">
+            <video preload="none" controls playsinline poster="images/Rodenttube logo.png" src="videos/Daar is Rodenttube voor.mp4" loading="lazy"></video>
+        <video preload="none" controls playsinline poster="images/all the beavers nibble wood.jpg" src="videos/All the beavers nibble wood.mp4" loading="lazy"></video>
+    <video preload="none" controls playsinline poster="images/Quote 11.png" src="videos/Quote 11.mp4" loading="lazy"></video>
+    <video preload="none" controls playsinline poster="images/Quote 10.png" src="videos/Quote 10.mp4" loading="lazlly"></video>
+    <video preload="none" controls playsinline poster="images/Quote 9.png" src="videos/Quote 9.mp4" loading="lazy"></video>
+    <video preload="none" controls playsinline poster="images/Quote 8.png" src="videos/Quote 8.mp4" loading="lazy"></video>
+    <video preload="none" controls playsinline poster="images/Quote 7.png" src="videos/Quote 7.mp4" loading="lazy"></video>
+    <video preload="none" controls playsinline poster="images/Als ik terug kon in het bos.jpg" src="videos/Als ik terug kon in het bos soundtrap.mp4" loading="lazy"></video>
+    <video preload="none" controls playsinline poster="images/Quote 6.png" src="videos/Quote 6.mp4" loading="lazy"></video>
+    <video preload="none" controls playsinline poster="images/Quote 5.png" src="videos/Quote 5.mp4" loading="lazy"></video>
+    <video preload="none" controls playsinline poster="images/Quote 4.png" src="videos/Quote 4.mp4" loading="lazy"></video>
+    <video preload="none" controls playsinline poster="images/Ricardo de Bever.png" src="videos/Ik ben Ricardo.mp4" loading="lazy"></video>
+    <video preload="none" controls playsinline poster="images/Quote 3.png" src="videos/Quote 3.mp4" loading="lazy"></video>
+    <video preload="none" controls playsinline poster="images/Quote 2.png" src="videos/Quote 2.mp4" loading="lazy"></video>
+        <video preload="none" controls playsinline poster="images/Quote 1.png"
+            src="videos/Quote 1.mp4" loading="lazy"></video>
+     <video preload="none" controls playsinline poster="images/knaagdierjournaal videos.jpg" src="videos/knaagdierjournaal-16-jan.mp4"
+    loading="lazy"></video>
+       <video preload="none" controls playsinline poster="images/vrienden voor het leven cover.jpg" src="videos/Beverprotest.mp4"
+    loading="lazy"></video>
+    <video preload="none" controls playsinline poster="images/Ricardo de Bever.png" src="videos/Ik ben een 0 met knaagdieren.mp4"
+    loading="lazy"></video>
+<video preload="none" controls playsinline poster="images/10.000 beukennoten.jpg" src="videos/10.000 beukennoten.mp4"
+    loading="lazy"></video>
+<video preload="none" controls playsinline poster="images/nibble-wood.jpg"
+    src="videos/all-we-have-to-do-is-to-nibble-wood.mp4" loading="lazy"></video>
+<video preload="none" controls playsinline poster="images/Rodent World.jpg" src="videos/rodent-world.mp4"
+    loading="lazy"></video>
+<video preload="none" controls playsinline poster="images/het jaar van.jpg" src="videos/Dit is het jaar van.mp4"
+    loading="lazy"></video>
+<video preload="none" controls playsinline poster="images/let me nibble wood with you.jpg"
+    src="videos/let me nibble wod with you.mp4" loading="lazy"></video>
+<video preload="none" controls playsinline poster="images/Dit is mijn stad.jpg" src="videos/Dit is mijn Beverwijk.mp4"
+    loading="lazy"></video>
+<video preload="none" controls playsinline poster="images/videobandenspeler.jpg"
+    src="videos/Mijn omas videobandenspeler rechtenvrij.mp4" loading="lazy"></video>
+<video preload="none" controls playsinline poster="images/Bart de bever.png" src="videos/Kom als die Bart knaagt.mp4"
+    loading="lazy"></video>
+<video preload="none" controls playsinline poster="images/Ik ben ricardo de bever.jpg"
+    src="videos/ik ben ricardo de bever.mp4" loading="lazy"></video>
+<video preload="none" controls playsinline poster="images/we gaan naar Friesland.jpg"
+    src="videos/we gaan naar friesland.mp4" loading="lazy"></video>
+<video preload="none" controls playsinline poster="images/money.jpg" src="videos/had je heel veel poen.mp4"
+    loading="lazy"></video>
+<video preload="none" controls playsinline poster="images/kon ik nog maar 1 dag in het bos zijn.jpg"
+    src="videos/kon ik nog maar 1 dag in het bos zijn.mp4" loading="lazy"></video>
+<video preload="none" controls playsinline poster="images/Zonder Rodenttube.png" src="videos/Zonder Rodenttube.mp4"
+    loading="lazy"></video>
+<video preload="none" controls playsinline poster="images/Ik ben ricardo.png" src="videos/ik ben ricardo.mp4"
+    loading="lazy"></video>
+<video preload="none" controls playsinline poster="images/knaagdierjournaal video 3.png"
+    src="videos/knaagdierjournaal video 3.mp4" loading="lazy"></video>
+<video preload="none" controls playsinline poster="images/verkiezingsdabat 1.png" src="videos/verkiezingsdebat 1.mp4"
+    loading="lazy"></video>
+<video preload="none" controls playsinline poster="images/zij knaagt met mij.png" src="videos/Zij knaagt met mij.mp4"
+    loading="lazy"></video>
+<video preload="none" controls playsinline poster="images/knaagdierjournaal video 2.png"
+    src="videos/knaagdierjournaal 2.mp4" loading="lazy"></video>
+<video preload="none" controls playsinline poster="images/ricardo-bij-klantenservice.png"
+    src="videos/ricardo-bij-klantenservice.mp4" loading="lazy"></video>
+<video preload="none" controls playsinline poster="images/Bart de bever.png"
+    src="videos/Wie is Bart zijn beste vriend.mp4" loading="lazy"></video>
+<video preload="none" controls playsinline poster="images/terry-boadam.png"
+    src="videos/terry-boadam-strijd-voor-het-knagen.mp4" loading="lazy"></video>
+<video preload="none" controls playsinline poster="images/les-huis-anubis-1.jpg" src="videos/les-huis-anubis-1.mp4"
+    loading="lazy"></video>
+<video preload="none" controls playsinline poster="images/The-forest-is-ours.jpg" src="videos/The-forest-is-ours.mp4"
+    loading="lazy"></video>
+<video preload="none" controls playsinline poster="images/knaagdierjournaal video 1.webp"
+    src="videos/Knaagdierjournaal video 1.mp4" loading="lazy"></video>
+<video preload="none" controls playsinline poster="images/Iedereen volgt de trends.png"
+    src="videos/Iedereen volgt de trends.mp4" loading="lazy"></video>
+<video preload="none" controls playsinline poster="images/Dit is de realitijd.png" src="videos/Dit is de realitijd.mp4"
+    loading="lazy"></video>
+<video preload="none" controls playsinline poster="images/I wish you a lot of beachnuts.png"
+    src="videos/I wish you a lot of beachnuts.mp4" loading="lazy"></video>
+<video preload="none" controls playsinline poster="images/knagen is goud.png" src="videos/knagen is goud.mp4"
+    loading="lazy"></video>
+<video preload="none" controls playsinline poster="images/Jij knaagt te veel.png" src="videos/jij knaagt te veel.mp4"
+    loading="lazy"></video>
+<video preload="none" controls playsinline poster="images/Drukke beverdans.png" src="videos/Drukke beverdans.mp4"
+    loading="lazy"></video>
+<video preload="none" controls playsinline poster="images/mag niet meer knagen.png"
+    src="videos/mag niet meer knagen.mp4" loading="lazy"></video>
+<video preload="none" controls playsinline poster="images/we gaan met de familie naar het beverbos.png"
+    src="videos/we gaan met de familie naar het beverbos.mp4" loading="lazy"></video>
+<video preload="none" controls playsinline poster="images/mijn zoon knaagt bomen.png"
+    src="videos/Mijn zoon knaagt bomen.mp4" loading="lazy"></video>
+<video preload="none" controls playsinline poster="images/I nibble wood in the snow.jpg"
+    src="videos/I nibble wood in the snow.mp4" loading="lazy"></video>
+<video preload="none" controls playsinline poster="images/Bomen knagen.jpg" src="videos/Bomen knagen.mp4"
+    loading="lazy"></video>
+<video preload="none" controls playsinline poster="images/What is so nice about Rodenttube.jpg"
+    src="videos/What is so nice about Rodenttube.mp4" loading="lazy"></video>
+<video preload="none" controls playsinline poster="images/Bartje knaagt graag hout.jpg"
+    src="videos/Bartje knaagt graag hout.mp4" loading="lazy"></video>
+<video preload="none" controls playsinline poster="images/knagen is lit.jpg" src="videos/Knagen is lit.mp4"
+    loading="lazy"></video>
+<video preload="none" controls playsinline poster="images/De klas gebruikt AI.jpg" src="videos/De klas gebruikt AI.mp4"
+    loading="lazy"></video>
+<video preload="none" controls playsinline poster="images/Dit is Rodenttube.jpg" src="videos/Dit is Rodenttube.mp4"
+    loading="lazy"></video>
+<video preload="none" controls playsinline poster="images/Kerstbever.jpg" src="videos/kerstbever.mp4"
+    loading="lazy"></video>
+<video preload="none" controls playsinline poster="images/Wedden.jpg" src="videos/Wedden.mp4" loading="lazy"></video>
+<video preload="none" controls playsinline poster="images/Ik wens je veel beukennoten.jpg"
+    src="videos/Ik wens je veel beukennoten.mp4" loading="lazy"></video>
+<video preload="none" controls playsinline poster="images/Oja lele parodie.jpg" src="videos/Oja lele parodie.mp4"
+    loading="lazy"></video>
+<video preload="none" controls playsinline poster="images/Knagen zij aan zij.jpg" src="videos/Knagen zij aan zij.mp4"
+    loading="lazy"></video>
+    <script>
+        // Functie om de pop-up te sluiten
+        function closeCustomAlert(isButtonClick) {
+        document.getElementById('custom-alert').style.display = 'none';
+        document.getElementById('main-content').style.display = 'block';
+        
+        // Alleen autoplay als de knop is aangeklikt, niet via Enter
+        if (isButtonClick) {
+        const video = document.getElementById('videoElement');
+        video.play();
+        }
+        }
+        
+        // Event listener voor de Enter-toets
+        document.addEventListener('keydown', function(event) {
+        if (event.key === 'Enter') {
+        closeCustomAlert(false); // Sluit zonder autoplay
+        }
+        });
+
+    // Event listener voor de Enter-toets
+    document.addEventListener('keydown', function(event) {
+    if (event.key === 'Enter') {
+    closeCustomAlert();
+    }
+    });
+
+    // State management
+    const state = { currentVideoIndex: 0, currentDropdownIndex: 0, videosPerRow: window.innerWidth >= 768 ? 2 : 1 };
+
+    // DOM Elements
+    const elements = {
+    videos: document.querySelectorAll('video'),
+    dropdown: {
+    menu: document.getElementById('dropdown-menu'),
+    buttons: document.querySelectorAll('button')
+    },
+    helpText: document.getElementById('help-text'),
+    menuToggle: document.getElementById('menu-toggle')
+    };
+
+    function initialize() {
+    // Set initial focus on first video
+    elements.videos[0].focus();
+    setupTabIndices();
+
+    // Add event listeners for video playback
+    elements.videos.forEach(video => {
+    video.addEventListener('play', () => {
+    pauseOtherVideos(video);
+    });
+    });
+
+    // Check if background images are loaded
+    checkBackgroundImages();
+
+    // Check if videos are loaded
+    checkVideos();
+    }
+
+    function setupTabIndices() {
+    elements.videos.forEach((el, index) => el.setAttribute('tabindex', index + 1));
+    }
+
+    function pauseOtherVideos(currentVideo) {
+    elements.videos.forEach(video => {
+    if (video !== currentVideo && !video.paused) {
+    video.pause();
+    }
+    });
+    }
+
+    function checkBackgroundImages() {
+    const wrappers = document.querySelectorAll('.video-wrapper');
+    wrappers.forEach(wrapper => {
+    const img = new Image();
+    img.src = wrapper.style.backgroundImage.replace(/url$['"]?(.*?)['"]?$/, '\$1');
+    img.onload = () => {
+    wrapper.style.backgroundImage = `url('${img.src}')`;
+    };
+    img.onerror = () => {
+    console.error(`Failed to load image: ${img.src}`);
+    };
+    });
+    }
+
+    function checkVideos() {
+    elements.videos.forEach(video => {
+    video.addEventListener('loadeddata', () => {
+    console.log(`Video loaded: ${video.src}`);
+    });
+    video.addEventListener('error', () => {
+    console.error(`Failed to load video: ${video.src}`);
+    });
+    });
+    }
+
+    function handleKeydown(e) {
+    const currentVideo = elements.videos[state.currentVideoIndex];
+    const totalVideos = elements.videos.length;
+
+    switch (e.key) {
+    case 'ArrowLeft':
+    e.preventDefault();
+    // Pause current video
+    if (currentVideo) {
+    currentVideo.pause();
+    }
+    // Update index and focus
+    state.currentVideoIndex = (state.currentVideoIndex - 1 + totalVideos) % totalVideos;
+    elements.videos[state.currentVideoIndex].focus();
+    elements.videos[state.currentVideoIndex].scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    break;
+
+    case 'ArrowRight':
+    e.preventDefault();
+    // Pause current video
+    if (currentVideo) {
+    currentVideo.pause();
+    }
+    // Update index and focus
+    state.currentVideoIndex = (state.currentVideoIndex + 1) % totalVideos;
+    elements.videos[state.currentVideoIndex].focus();
+    elements.videos[state.currentVideoIndex].scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    break;
+
+    case 'ArrowUp':
+    e.preventDefault();
+    // Pause current video
+    if (currentVideo) {
+    currentVideo.pause();
+    }
+    // Move up one row
+    state.currentVideoIndex = Math.max(0, state.currentVideoIndex - state.videosPerRow);
+    elements.videos[state.currentVideoIndex].focus();
+    elements.videos[state.currentVideoIndex].scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    break;
+
+    case 'ArrowDown':
+    e.preventDefault();
+    // Pause current video
+    if (currentVideo) {
+    currentVideo.pause();
+    }
+    // Move down one row
+    state.currentVideoIndex = Math.min(totalVideos - 1, state.currentVideoIndex + state.videosPerRow);
+    elements.videos[state.currentVideoIndex].focus();
+    elements.videos[state.currentVideoIndex].scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    break;
+
+    case 'Enter':
+    e.preventDefault();
+    if (currentVideo) {
+    if (currentVideo.paused) {
+    currentVideo.play();
+    } else {
+    currentVideo.pause();
+    }
+    }
+    break;
+    }
+    }
+
+    window.addEventListener('resize', () => {
+    state.videosPerRow = window.innerWidth >= 768 ? 2 : 1;
+    });
+
+    // Initialize when DOM is loaded
+    document.addEventListener('DOMContentLoaded', initialize);
+    document.addEventListener('keydown', handleKeydown);
+    document.addEventListener("keydown", function (event) {
+    // Controleer of de Enter-toets is ingedrukt
+    if (event.key === "Enter") {
+    // Voorkom de standaardactie
+    event.preventDefault();
+    
+    // Controleer of een video geselecteerd is
+    const focusedElement = document.activeElement;
+    if (focusedElement && focusedElement.tagName === "VIDEO") {
+    // Als een video geselecteerd is, kun je eventueel hier actie ondernemen.
+    console.log("Video geselecteerd:", focusedElement);
+    } else {
+    console.log("Geen video geselecteerd.");
+    }
+    }
+    });
+    </script>
+</body>
+</html>
